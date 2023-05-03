@@ -1,0 +1,27 @@
+  @import url(https://fonts.googleapis.com/css?family=PT+Sans);
+ 
+    #list{
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      /* justify-content: center; */
+      margin-top: 20px;
+    }
+    .container{
+      max-width: 32.4%;
+      height: 400px;
+      position: relative;
+    }
+    .image{
+      width: 100%;
+      height: 100%;
+    }
+    .delete {
+      position: absolute;
+      top: -4px;
+      right:0%;
+      cursor: pointer;
+      font-size: 22px;
+      color: white;
+    }
+    
