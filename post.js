@@ -2,6 +2,7 @@ let input = document.querySelector("input");
 let imageArr = [];
 getData();
 displayImages();
+let likeCount = 0;
 
 let uname = JSON.parse(localStorage.getItem("uname"));
 input.addEventListener("change", (event) => {
@@ -11,7 +12,7 @@ input.addEventListener("change", (event) => {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      var testObj = { uname: uname[0].uname, imageUrl: e.target.result };
+      var testObj = { uname: uname[0].uname,like : likeCount ,imageUrl: e.target.result };
 
       if (convertMB <= 2) {
         imageArr.push(testObj);
@@ -34,11 +35,14 @@ function displayImages() {
         <span>${image.uname}</span>
         <img class="image" src="${image.imageUrl}">
         <span class="delete" onclick="deleteImages(${index})">&times;</span>
-        <button class=emoji>&#x1F44D;</button> 
-        <span>${likeCount}</span>
+        <button onclick="countLike(${index})" class=emoji>&#x1F44D;</button> 
+        <span >${likeCount}</span>
         </div>`;
   });
   document.getElementById("list").innerHTML = images;
+}
+function countLike  (index){
+  console.log(imageArr[index])
 }
 function setData() {
   localStorage.setItem("images", JSON.stringify(imageArr));
